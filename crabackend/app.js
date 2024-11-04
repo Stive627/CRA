@@ -8,9 +8,9 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
-app.use(express.static('public'))
+app.use('/public', express.static('public'))
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 const localhost = '127.0.0.1'
 app.use('/user', userRouter)
 app.use('/car', carRouter)

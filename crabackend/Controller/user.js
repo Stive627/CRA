@@ -41,6 +41,6 @@ exports.login = function(req, res){
         }
         else return res.status(401).json({message:'Invalid username or password.'})
          })
-    .catch((error)=> res.status(500).json({message:`An error occurred while trying to log in.\n ${error}`}))
+    .catch((error)=> {res.status(500).json({message:`An error occurred while trying to log in.\n ${error}`}); console.log('An error occured' + error)})
 
 }
