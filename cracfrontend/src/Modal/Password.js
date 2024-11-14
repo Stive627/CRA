@@ -13,13 +13,10 @@ const PasswordContainer = ({children, zIndex}) =>{
 }
 
 const ValidationPassword = ({minLength, digitalValue, specialCharacter}) =>{
-
     const parameter =[
         {param: 'Contain more than 7 values', icon:<CheckCircleIcon className={`${minLength? ' bg-green-600':'bg-gray-500'}`}/>},
         {param:'Contain digital value', icon:<CheckCircleIcon className={`${digitalValue? ' bg-green-600':'bg-gray-500'}`}/>},
         {param:'Contain special  character', icon:<CheckCircleIcon className={`${specialCharacter? ' bg-green-600':'bg-gray-500'}`}/>}
-        
-
     ]
     .map(elt =><li key={elt.param} className=' flex justify-between divide-y font-medium'><p>{elt.param}</p> {elt.icon}</li>)
 
@@ -34,13 +31,11 @@ function Password({zIndex, setZindex, users,setUsers }) {
     const [user, setUser] = useState({
         password:{value:'',isTouched:false, editing:false, error:''},
     })
-
     const minLength = user.password.value.length > 7
     const digitalValue = /\d+/.test(user.password.value)
     const specialCharacter = /[!@#$%^&*()]/.test(user.password.value)
     const validPass = minLength && digitalValue && specialCharacter
 
-    
   return (
     <PasswordContainer zIndex={zIndex}>
         <CraInput user={user} type='passwordd' error={''}  placeholder={'Enter your password'} setUser={setUser} field={'password'} className={''} autoFocus={true} />
@@ -49,5 +44,4 @@ function Password({zIndex, setZindex, users,setUsers }) {
     </PasswordContainer>
   )
 }
-
 export default Password
